@@ -1,0 +1,246 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006d980776, pid=12188, tid=11644
+#
+# JRE version: 6.0_45-b06
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (20.45-b01 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0xa0776]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000005bc000):  JavaThread "main" [_thread_in_vm, id=11644, stack(0x0000000001e00000,0x0000000001f00000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00000000005c0cec
+
+Registers:
+RAX=0x00000000005bcb60, RBX=0x000000077c4ca6f5, RCX=0x0000000000001000, RDX=0x0000000000001063
+RSP=0x0000000001efd260, RBP=0x0000000000000005, RSI=0x0000000000000003, RDI=0x00000000000000a5
+R8 =0x00000000005bd000, R9 =0x000000006d8e0000, R10=0x0000000001efd440, R11=0x000000000000000c
+R12=0x0000000000000000, R13=0x000000077c4ca708, R14=0x0000000000000000, R15=0x000000000000000e
+RIP=0x000000006d980776, EFLAGS=0x0000000000010206
+
+Top of Stack: (sp=0x0000000001efd260)
+0x0000000001efd260:   000000077c2a7b58 000000006d9a387d
+0x0000000001efd270:   00000000005b75e0 00000000005bd020
+0x0000000001efd280:   00000000005b6310 000000077c23cd40
+0x0000000001efd290:   0000000000000000 000000006d98046c
+0x0000000001efd2a0:   000000077c4ca6f0 0000000000000000
+0x0000000001efd2b0:   0000000000000020 00000000005bcb60
+0x0000000001efd2c0:   0000000000000000 00000000005bc000
+0x0000000001efd2d0:   0000000001efd440 0000000000000020
+0x0000000001efd2e0:   0000000000000014 000000006d980e92
+0x0000000001efd2f0:   0000000001efd440 00000000005b7600
+0x0000000001efd300:   0000000000000001 0000000000000004
+0x0000000001efd310:   0000000000000005 000000006d955683
+0x0000000001efd320:   000000077c2a7b58 000000006d9a387d
+0x0000000001efd330:   00000000005b75e0 00000000005bd020
+0x0000000001efd340:   00000000005bc000 00007ffa6b27149c
+0x0000000001efd350:   00000000005bd018 000000006d9f862f 
+
+Instructions: (pc=0x000000006d980776)
+0x000000006d980756:   0f b7 44 1c 01 0f b6 c8 66 89 44 24 20 0f b6 44
+0x000000006d980766:   24 21 66 c1 e1 08 0f b7 d1 48 0b d0 49 8b 42 20
+0x000000006d980776:   0f b7 0c 90 66 41 89 4c 1c 01 e9 2a 01 00 00 45
+0x000000006d980786:   8d 46 01 48 8b d3 49 8b ca e8 8c f9 ff ff 44 8a 
+
+
+Register to memory mapping:
+
+RAX=0x00000000005bcb60 is an unknown value
+RBX=0x000000077c4ca6f5 is an oop
+{constMethod} 
+ - klass: {other class}
+ - method:       0x000000077c4ca708 {method} '<init>' '(Ljava/lang/Throwable;)V' in 'java/lang/reflect/InvocationTargetException'
+ - exceptions:   0x000000077c201ef8
+bci_from(000000077C4CA6F5) = 5; print_codes():
+RCX=0x0000000000001000 is an unknown value
+RDX=0x0000000000001063 is an unknown value
+RSP=0x0000000001efd260 is pointing into the stack for thread: 0x00000000005bc000
+RBP=0x0000000000000005 is an unknown value
+RSI=0x0000000000000003 is an unknown value
+RDI=0x00000000000000a5 is an unknown value
+R8 =0x00000000005bd000 is an unknown value
+R9 =0x000000006d8e0000 is an unknown value
+R10=0x0000000001efd440 is pointing into the stack for thread: 0x00000000005bc000
+R11=0x000000000000000c is an unknown value
+R12=0x0000000000000000 is an unknown value
+R13=0x000000077c4ca708 is an oop
+{method} 
+ - klass: {other class}
+R14=0x0000000000000000 is an unknown value
+R15=0x000000000000000e is an unknown value
+
+
+Stack: [0x0000000001e00000,0x0000000001f00000],  sp=0x0000000001efd260,  free space=1012k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xa0776]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.sonar.runner.impl.BatchLauncher$1.delegateExecution(Lorg/sonar/runner/impl/IsolatedClassloader;Ljava/lang/String;Ljava/util/Properties;Ljava/util/List;)Ljava/lang/Object;+84
+j  org.sonar.runner.impl.BatchLauncher$1.run()Ljava/lang/Object;+54
+v  ~StubRoutines::call_stub
+j  java.security.AccessController.doPrivileged(Ljava/security/PrivilegedAction;)Ljava/lang/Object;+0
+j  org.sonar.runner.impl.BatchLauncher.doExecute(Lorg/sonar/runner/impl/JarDownloader;Lorg/sonar/runner/impl/ServerVersion;Ljava/util/Properties;Ljava/util/List;)Ljava/lang/Object;+13
+j  org.sonar.runner.impl.BatchLauncher.execute(Ljava/util/Properties;Ljava/util/List;)V+34
+j  org.sonar.runner.api.EmbeddedRunner.doExecute()V+12
+j  org.sonar.runner.api.Runner.execute()V+86
+j  org.codehaus.mojo.sonar.bootstrap.RunnerBootstraper.execute()V+192
+j  org.codehaus.mojo.sonar.SonarMojo.execute()V+114
+j  org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;)V+166
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;)V+215
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/plugin/MojoExecution;Lorg/apache/maven/lifecycle/internal/ProjectIndex;Lorg/apache/maven/lifecycle/internal/DependencyContext;Lorg/apache/maven/lifecycle/internal/PhaseRecorder;)V+6
+j  org.apache.maven.lifecycle.internal.MojoExecutor.execute(Lorg/apache/maven/execution/MavenSession;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ProjectIndex;)V+60
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+151
+j  org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/project/MavenProject;Lorg/apache/maven/lifecycle/internal/TaskSegment;)V+7
+j  org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(Lorg/apache/maven/execution/MavenSession;Lorg/apache/maven/lifecycle/internal/ReactorContext;Lorg/apache/maven/lifecycle/internal/ProjectBuildList;Ljava/util/List;Lorg/apache/maven/lifecycle/internal/ReactorBuildStatus;)V+77
+j  org.apache.maven.lifecycle.internal.LifecycleStarter.execute(Lorg/apache/maven/execution/MavenSession;)V+336
+j  org.apache.maven.DefaultMaven.doExecute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+557
+j  org.apache.maven.DefaultMaven.execute(Lorg/apache/maven/execution/MavenExecutionRequest;)Lorg/apache/maven/execution/MavenExecutionResult;+11
+j  org.apache.maven.cli.MavenCli.execute(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+19
+j  org.apache.maven.cli.MavenCli.doMain(Lorg/apache/maven/cli/MavenCli$CliRequest;)I+61
+j  org.apache.maven.cli.MavenCli.main([Ljava/lang/String;Lorg/codehaus/plexus/classworlds/ClassWorld;)I+18
+v  ~StubRoutines::call_stub
+j  sun.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0
+j  sun.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+87
+j  sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+161
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced([Ljava/lang/String;)V+45
+j  org.codehaus.plexus.classworlds.launcher.Launcher.launch([Ljava/lang/String;)V+2
+j  org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode([Ljava/lang/String;)I+101
+j  org.codehaus.plexus.classworlds.launcher.Launcher.main([Ljava/lang/String;)V+1
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000008cb0800 JavaThread "pool-2-thread-1" [_thread_blocked, id=11488, stack(0x000000000ca00000,0x000000000cb00000)]
+  0x0000000009328800 JavaThread "CLEANUP_MANAGER" [_thread_blocked, id=6476, stack(0x000000000c900000,0x000000000ca00000)]
+  0x000000000a60d800 JavaThread "CHECKPOINT_WRITER" [_thread_blocked, id=9952, stack(0x000000000c560000,0x000000000c660000)]
+  0x00000000094a4800 JavaThread "TXN_UPDATE" [_thread_blocked, id=1116, stack(0x000000000c800000,0x000000000c900000)]
+  0x0000000009469000 JavaThread "PAGE_WRITER:8192" [_thread_blocked, id=8572, stack(0x000000000c700000,0x000000000c800000)]
+  0x0000000009684800 JavaThread "JOURNAL_FLUSHER" [_thread_blocked, id=8300, stack(0x000000000b470000,0x000000000b570000)]
+  0x000000000b658000 JavaThread "JOURNAL_COPIER" [_thread_blocked, id=10788, stack(0x000000000b1c0000,0x000000000b2c0000)]
+  0x000000000a51b800 JavaThread "LOG_FLUSHER" daemon [_thread_blocked, id=11052, stack(0x000000000b370000,0x000000000b470000)]
+  0x0000000008117800 JavaThread "Abandoned connection cleanup thread" daemon [_thread_blocked, id=7356, stack(0x000000000a0f0000,0x000000000a1f0000)]
+  0x0000000006a64800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=12144, stack(0x0000000006d50000,0x0000000006e50000)]
+  0x0000000006a53000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=12196, stack(0x0000000006c50000,0x0000000006d50000)]
+  0x000000000235c000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=10356, stack(0x0000000006950000,0x0000000006a50000)]
+  0x000000000235b800 JavaThread "Attach Listener" daemon [_thread_blocked, id=11480, stack(0x0000000006850000,0x0000000006950000)]
+  0x0000000002358000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11456, stack(0x0000000006750000,0x0000000006850000)]
+  0x0000000002320000 JavaThread "Finalizer" daemon [_thread_blocked, id=11504, stack(0x0000000006650000,0x0000000006750000)]
+  0x000000000231c800 JavaThread "Reference Handler" daemon [_thread_blocked, id=7236, stack(0x0000000006550000,0x0000000006650000)]
+=>0x00000000005bc000 JavaThread "main" [_thread_in_vm, id=11644, stack(0x0000000001e00000,0x0000000001f00000)]
+
+Other Threads:
+  0x0000000002316000 VMThread [stack: 0x0000000006450000,0x0000000006550000] [id=11984]
+  0x0000000006a6f000 WatcherThread [stack: 0x0000000006e50000,0x0000000006f50000] [id=11332]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 107136K, used 24K [0x00000007d5c00000, 0x00000007dc540000, 0x0000000800000000)
+  eden space 106624K, 0% used [0x00000007d5c00000,0x00000007d5c063c8,0x00000007dc420000)
+  from space 512K, 0% used [0x00000007dc4c0000,0x00000007dc4c0000,0x00000007dc540000)
+  to   space 576K, 0% used [0x00000007dc420000,0x00000007dc420000,0x00000007dc4b0000)
+ PSOldGen        total 1384448K, used 54687K [0x0000000781400000, 0x00000007d5c00000, 0x00000007d5c00000)
+  object space 1384448K, 3% used [0x0000000781400000,0x0000000784967dd8,0x00000007d5c00000)
+ PSPermGen       total 83968K, used 83967K [0x000000077c200000, 0x0000000781400000, 0x0000000781400000)
+  object space 83968K, 99% used [0x000000077c200000,0x00000007813fffd8,0x0000000781400000)
+
+Code Cache  [0x0000000002360000, 0x0000000002b70000, 0x0000000005360000)
+ total_blobs=2819 nmethods=2315 adapters=456 free_code_cache=41990336 largest_free_block=11136
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042f000 	C:\Program Files\Java\jdk1.6.0_45\bin\javaw.exe
+0x00007ffa6dd80000 - 0x00007ffa6df2c000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffa6c020000 - 0x00007ffa6c15a000 	C:\Windows\system32\KERNEL32.DLL
+0x00007ffa6b270000 - 0x00007ffa6b37f000 	C:\Windows\system32\KERNELBASE.dll
+0x00007ffa68e10000 - 0x00007ffa68e98000 	C:\Windows\system32\apphelp.dll
+0x00007ffa58c70000 - 0x00007ffa58cbf000 	C:\Windows\AppPatch\AppPatch64\AcGenral.DLL
+0x00007ffa6d6c0000 - 0x00007ffa6d767000 	C:\Windows\system32\msvcrt.dll
+0x00007ffa6afa0000 - 0x00007ffa6afcb000 	C:\Windows\SYSTEM32\SspiCli.dll
+0x00007ffa6dc60000 - 0x00007ffa6dcb1000 	C:\Windows\system32\SHLWAPI.dll
+0x00007ffa6d770000 - 0x00007ffa6d8e1000 	C:\Windows\system32\USER32.dll
+0x00007ffa6d8f0000 - 0x00007ffa6da68000 	C:\Windows\system32\ole32.dll
+0x00007ffa6c2b0000 - 0x00007ffa6d6bf000 	C:\Windows\system32\SHELL32.dll
+0x00007ffa6a760000 - 0x00007ffa6a77e000 	C:\Windows\SYSTEM32\USERENV.dll
+0x00007ffa6b740000 - 0x00007ffa6b7e5000 	C:\Windows\system32\ADVAPI32.dll
+0x00007ffa65490000 - 0x00007ffa654ab000 	C:\Windows\SYSTEM32\MPR.dll
+0x00007ffa6b600000 - 0x00007ffa6b737000 	C:\Windows\system32\RPCRT4.dll
+0x00007ffa6dcc0000 - 0x00007ffa6dd17000 	C:\Windows\SYSTEM32\sechost.dll
+0x00007ffa6bcb0000 - 0x00007ffa6be86000 	C:\Windows\SYSTEM32\combase.dll
+0x00007ffa6c160000 - 0x00007ffa6c2a4000 	C:\Windows\system32\GDI32.dll
+0x00007ffa6b0f0000 - 0x00007ffa6b104000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffa698a0000 - 0x00007ffa6993f000 	C:\Windows\SYSTEM32\SHCORE.dll
+0x00007ffa6be90000 - 0x00007ffa6bec4000 	C:\Windows\system32\IMM32.DLL
+0x00007ffa6b7f0000 - 0x00007ffa6b929000 	C:\Windows\system32\MSCTF.dll
+0x0000000074cd0000 - 0x0000000074d57000 	C:\Windows\System32\SYSFER.DLL
+0x000000006d8e0000 - 0x000000006e09c000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\server\jvm.dll
+0x00007ffa58b10000 - 0x00007ffa58b2f000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffa58ae0000 - 0x00007ffa58b0a000 	C:\Windows\SYSTEM32\WINMMBASE.dll
+0x00007ffa6b5b0000 - 0x00007ffa6b5fa000 	C:\Windows\SYSTEM32\cfgmgr32.dll
+0x00007ffa69f50000 - 0x00007ffa69f76000 	C:\Windows\SYSTEM32\DEVOBJ.dll
+0x000000006d850000 - 0x000000006d85e000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\verify.dll
+0x000000006d460000 - 0x000000006d487000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\java.dll
+0x000000006d8a0000 - 0x000000006d8b2000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\zip.dll
+0x000000006d6c0000 - 0x000000006d6d7000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\net.dll
+0x00007ffa6dd20000 - 0x00007ffa6dd78000 	C:\Windows\system32\WS2_32.dll
+0x00007ffa6da70000 - 0x00007ffa6da79000 	C:\Windows\system32\NSI.dll
+0x00007ffa6aa00000 - 0x00007ffa6aa58000 	C:\Windows\system32\mswsock.dll
+0x000000006d6e0000 - 0x000000006d6ec000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\nio.dll
+0x00007ffa6aa60000 - 0x00007ffa6aa7e000 	C:\Windows\SYSTEM32\CRYPTSP.dll
+0x00007ffa6a650000 - 0x00007ffa6a685000 	C:\Windows\system32\rsaenh.dll
+0x00007ffa6aca0000 - 0x00007ffa6acc6000 	C:\Windows\SYSTEM32\bcrypt.dll
+0x00007ffa6afd0000 - 0x00007ffa6b030000 	C:\Windows\system32\bcryptprimitives.dll
+0x00007ffa6b030000 - 0x00007ffa6b03a000 	C:\Windows\SYSTEM32\CRYPTBASE.dll
+0x00007ffa66490000 - 0x00007ffa664a4000 	C:\Windows\system32\napinsp.dll
+0x00007ffa664b0000 - 0x00007ffa664c9000 	C:\Windows\system32\pnrpnsp.dll
+0x00007ffa68970000 - 0x00007ffa6898b000 	C:\Windows\system32\NLAapi.dll
+0x00007ffa6a810000 - 0x00007ffa6a8b3000 	C:\Windows\SYSTEM32\DNSAPI.dll
+0x00007ffa664d0000 - 0x00007ffa664dc000 	C:\Windows\System32\winrnr.dll
+0x00007ffa665d0000 - 0x00007ffa665d9000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffa671d0000 - 0x00007ffa671f9000 	C:\Windows\SYSTEM32\IPHLPAPI.DLL
+0x00007ffa67170000 - 0x00007ffa6717a000 	C:\Windows\SYSTEM32\WINNSI.DLL
+0x00007ffa66ba0000 - 0x00007ffa66c08000 	C:\Windows\System32\fwpuclnt.dll
+0x000000006d600000 - 0x000000006d60a000 	C:\Program Files\Java\jdk1.6.0_45\jre\bin\management.dll
+0x00007ffa6bed0000 - 0x00007ffa6bed7000 	C:\Windows\system32\PSAPI.DLL
+
+VM Arguments:
+jvm_args: -Dmaven.home=EMBEDDED -Dclassworlds.conf=D:\POC\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf4909780753836536248.tmp -Dfile.encoding=Cp1252 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -B install
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.6.0_45
+PATH=C:/Program Files/Java/jdk1.6.0_45/bin/../jre/bin/server;C:/Program Files/Java/jdk1.6.0_45/bin/../jre/bin;C:/Program Files/Java/jdk1.6.0_45/bin/../jre/lib/amd64;C:\Program Files\apache-maven-3.0.3\bin;D:\sonar-runner-2.4\bin;C:\Program Files\Java\jdk1.6.0_45\bin;;C:\Program Files\eclipse\eclipse;
+USERNAME=nehasa
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt
+
+Memory: 4k page, physical 8305416k(4024896k free), swap 9616136k(3790616k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (20.45-b01) for windows-amd64 JRE (1.6.0_45-b06), built on Apr  1 2013 12:31:37 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Thu Mar 26 17:43:16 2015
+elapsed time: 27 seconds
+
