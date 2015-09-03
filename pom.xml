@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>ems_db-master Maven Webapp</name>
   <url>http://maven.apache.org</url>
-    <!--   <properties>
+      <properties>
      	
      	<sonar.jdbc.url>
 	jdbc:mysql://localhost:3306/sonar
@@ -18,7 +18,7 @@
     	
      	<sonar.host.url>http://localhost:9000/sonar</sonar.host.url>
      </properties>
--->
+
   
   <dependencies>
   
@@ -115,7 +115,7 @@
 	<artifactId>emma</artifactId>
 	<version>2.1.5320</version>
 </dependency>
-<dependency>
+<!--<dependency>
 	<groupId>org.flywaydb</groupId>
 	<artifactId>flyway-maven-plugin</artifactId>
 	<version>3.2.1</version>
@@ -124,7 +124,7 @@
 	<groupId>mysql</groupId>
 	<artifactId>mysql-connector-java</artifactId>
 	<version>5.1.6</version>
-</dependency>
+</dependency>-->
 
 
 
@@ -134,7 +134,7 @@
     <finalName>ems_db-master</finalName>
  
     <plugins>
-   <!-- <plugin>
+  <!-- <plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
@@ -143,11 +143,11 @@
 					<server>TomcatServer</server>
 					<username>admin</username>
 					<password>admin</password>
-					<path>/saini</path>
+					<path>/NEW_RELIC</path>
 					
 				</configuration>
-			</plugin>
-			-->
+			</plugin> -->
+			
 			
       <plugin>
          <groupId>org.codehaus.mojo</groupId>
@@ -178,7 +178,7 @@
                                                        </webResources>
                                                 </configuration>
                                          </plugin>
- <plugin>
+ <!--<plugin>
     <groupId>org.flywaydb</groupId>
     <artifactId>flyway-maven-plugin</artifactId>
     <version>3.2.1</version>
@@ -188,7 +188,7 @@
 		<user>root</user>
 		<password>root</password>
     </configuration>
-</plugin>
+</plugin>-->
 
 
 <!-- <plugin> 
