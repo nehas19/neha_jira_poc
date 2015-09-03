@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Issues report of My project</title>
+  <link href="issuesreport_files/sonar.css" media="all" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="issuesreport_files/favicon.ico">
+  <script type="text/javascript" src="issuesreport_files/jquery.min.js"></script>
+  <script type="text/javascript">
+    var issuesPerResource = [
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      
+    ];
+    var nbResources = 6;
+    var separators = new Array();
+
+    function showLine(fileIndex, lineId) {
+      var elt = $('#' + fileIndex + 'L' + lineId);
+      if (elt != null) {
+        elt.show();
+      }
+      elt = $('#' + fileIndex + 'LV' + lineId);
+      if (elt != null) {
+        elt.show();
+      }
+    }
+
+    /* lineIds must be sorted */
+    function showLines(fileIndex, lineIds) {
+      var lastSeparatorId = 9999999;
+      for (var lineIndex = 0; lineIndex < lineIds.length; lineIndex++) {
+        var lineId = lineIds[lineIndex];
+        if (lineId > 0) {
+          if (lineId > lastSeparatorId) {
+            var separator = $('#' + fileIndex + 'S' + lastSeparatorId);
+            if (separator != null) {
+              separator.addClass('visible');
+              separators.push(separator);
+            }
+          }
+
+          for (var i = -2; i < 3; ++i) {
+            showLine(fileIndex, lineId + i);
+          }
+          lastSeparatorId = lineId + 2;
+        }
+      }
+    }
+     function hideAll() {
+       $('tr.row').hide();
+       $('div.issue').hide();
+       for (var separatorIndex = 0; separatorIndex < separators.length; separatorIndex++) {
+         separators[separatorIndex].removeClass('visible');
+       }
+       separators.length = 0;
+       $('.sources td.ko').removeClass('ko');
+     }
+
+     function showIssues(fileIndex, issues) {
+       $.each(issues, function(index, issue) {
+         $('#' + issue['k']).show();
+         $('#' + fileIndex + 'L' + issue['l'] + ' td.line').addClass('ko');
+       });
+       var showResource = issues.length > 0;
+       if (showResource) {
+         $('#resource-' + fileIndex).show();
+       } else {
+         $('#resource-' + fileIndex).hide();
+       }
+     }
+
+
+    function refreshFilters(updateSelect) {
+      var onlyNewIssues = true;
+
+      if (updateSelect) {
+        populateSelectFilter(onlyNewIssues);
+      }
+      var ruleFilter = $('#rule_filter').val();
+
+      hideAll();
+      if (onlyNewIssues) {
+        $('.all').addClass('all-masked');
+      } else {
+        $('.all').removeClass('all-masked');
+      }
+      for (var resourceIndex = 0; resourceIndex < nbResources; resourceIndex++) {
+        var filteredIssues = $.grep(issuesPerResource[resourceIndex], function(v) {
+              return (!onlyNewIssues || v['new']) && (ruleFilter == '' || v['r'] == ruleFilter || v['s'] == ruleFilter);
+            }
+        );
+
+        var linesToDisplay = $.map(filteredIssues, function(v, i) {
+          return v['l'];
+        });
+
+        linesToDisplay.sort();// the showLines() requires sorted ids
+        showLines(resourceIndex, linesToDisplay);
+        showIssues(resourceIndex, filteredIssues);
+      }
+    }
+
+
+    var severityFilter = [
+       { "key": "info",
+         "label": "Info",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "minor",
+         "label": "Minor",
+         "total": 11,
+         "newtotal": 0
+       }
+    ];
+
+    var ruleFilter = [
+       { "key": "squid:S00105",
+         "label": "Tabulation characters should not be used",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "squid:S1488",
+         "label": "Variables should not be declared and then immediately returned or thrown",
+         "total": 1,
+         "newtotal": 0
+       },
+       { "key": "squid:S1135",
+         "label": "TODO tags should be handled",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "squid:S1213",
+         "label": "The members of an interface declaration or class should appear in a pre-defined order",
+         "total": 4,
+         "newtotal": 0
+       }
+    ].sort(function(a, b) {
+        var x = a.label; var y = b.label;
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+
+    function populateSelectFilter(onlyNewIssues) {
+       var ruleFilterSelect = $('#rule_filter');
+       ruleFilterSelect.empty().append(function() {
+         var output = '';
+         output += '<option value="" selected>Filter by:</option>';
+         output += '<optgroup label="Severity">';
+         $.each(severityFilter, function(key, value) {
+           if ((!onlyNewIssues && value.total > 0) || value.newtotal > 0) {
+             output += '<option value="' + value.key + '">' + value.label + ' (' + (onlyNewIssues ? value.newtotal : value.total) + ')</option>';
+           }
+         });
+         output += '<optgroup label="Rule">';
+         $.each(ruleFilter, function(key, value) {
+           if ((!onlyNewIssues && value.total > 0) || value.newtotal > 0) {
+             output += '<option value="R' + value.key + '">' + value.label + ' (' + (onlyNewIssues ? value.newtotal : value.total) + ')</option>';
+           }
+         });
+         return output;
+       });
+    }
+  </script>
+</head>
+<body>
+<div id="reportHeader">
+  <div id="logo"><img src="issuesreport_files/sonarqube-24x100.png" alt="SonarQube"/></div>
+  <div class="title">Issues Report</div>
+  <div class="subtitle">My project - Sep 3, 2015 3:32:47 PM</div>
+</div>
+
+<div id="content">
+
+  <div class="banner">Light report: only new issues are displayed</div>
+
+  <div id="summary">
+  <table width="100%">
+    <tbody>
+    <tr>
+      <td align="center" width="50%">
+        <h3>New issues</h3>
+        <span class="big">0</span>
+      </td>
+      <td align="center" width="50%">
+        <h3>Resolved issues</h3>
+        <span class="big">0</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <br/>
+
+  <div class="banner">
+
+    <select id="rule_filter" onchange="refreshFilters(false)">
+    </select>
+  </div>
+
+  <div id="summary-per-file">
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    refreshFilters(true);
+  });
+</script>
+</body>
+</html>
