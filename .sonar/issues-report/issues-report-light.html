@@ -25,9 +25,21 @@
       ,
       [
       ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
+      ,
+      [
+      ]
       
     ];
-    var nbResources = 6;
+    var nbResources = 10;
     var separators = new Array();
 
     function showLine(fileIndex, lineId) {
@@ -120,20 +132,60 @@
     var severityFilter = [
        { "key": "info",
          "label": "Info",
-         "total": 4,
+         "total": 18,
          "newtotal": 0
        },
        { "key": "minor",
          "label": "Minor",
-         "total": 11,
+         "total": 278,
+         "newtotal": 0
+       },
+       { "key": "major",
+         "label": "Major",
+         "total": 196,
          "newtotal": 0
        }
     ];
 
     var ruleFilter = [
-       { "key": "squid:S00105",
-         "label": "Tabulation characters should not be used",
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck",
+         "label": "Newline At End Of File",
          "total": 6,
+         "newtotal": 0
+       },
+       { "key": "pmd:LawOfDemeter",
+         "label": "Law Of Demeter",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck",
+         "label": "Declaration Order",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck",
+         "label": "Line Length",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocPackageCheck",
+         "label": "Javadoc Package",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck",
+         "label": "File Tab Character",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck",
+         "label": "Indentation",
+         "total": 97,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.coding.RequireThisCheck",
+         "label": "Require This",
+         "total": 15,
          "newtotal": 0
        },
        { "key": "squid:S1488",
@@ -146,9 +198,154 @@
          "total": 4,
          "newtotal": 0
        },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck",
+         "label": "Paren Pad",
+         "total": 1,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.coding.HiddenFieldCheck",
+         "label": "Hidden Field",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck",
+         "label": "Visibility Modifier",
+         "total": 1,
+         "newtotal": 0
+       },
+       { "key": "squid:UndocumentedApi",
+         "label": "Public types, methods and fields (API) should be documented with Javadoc",
+         "total": 37,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck",
+         "label": "Whitespace Around",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck",
+         "label": "Javadoc Method",
+         "total": 36,
+         "newtotal": 0
+       },
+       { "key": "pmd:UnusedModifier",
+         "label": "Unused Modifier",
+         "total": 10,
+         "newtotal": 0
+       },
        { "key": "squid:S1213",
          "label": "The members of an interface declaration or class should appear in a pre-defined order",
          "total": 4,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.FinalParametersCheck",
+         "label": "Final Parameters",
+         "total": 17,
+         "newtotal": 0
+       },
+       { "key": "squid:S1228",
+         "label": "Packages should have a javadoc file \'package-info.java\'",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "squid:IndentationCheck",
+         "label": "Source code should be correctly indented",
+         "total": 32,
+         "newtotal": 0
+       },
+       { "key": "pmd:UnnecessaryConstructor",
+         "label": "Unnecessary constructor",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "squid:S2333",
+         "label": "Redundant modifiers should not be used",
+         "total": 10,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck",
+         "label": "Javadoc Type",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "pmd:FieldDeclarationsShouldBeAtStartOfClass",
+         "label": "Field Declarations Should Be At Start Of Class",
+         "total": 4,
+         "newtotal": 0
+       },
+       { "key": "pmd:BeanMembersShouldSerialize",
+         "label": "Bean Members Should Serialize",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "squid:S00105",
+         "label": "Tabulation characters should not be used",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.coding.FinalLocalVariableCheck",
+         "label": "Final Local Variable",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "squid:S00103",
+         "label": "Lines of code should not be too long",
+         "total": 5,
+         "newtotal": 0
+       },
+       { "key": "pmd:LocalVariableCouldBeFinal",
+         "label": "Local variable could be final",
+         "total": 3,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.design.DesignForExtensionCheck",
+         "label": "Design For Extension",
+         "total": 22,
+         "newtotal": 0
+       },
+       { "key": "pmd:MethodArgumentCouldBeFinal",
+         "label": "Method Argument Could Be Final",
+         "total": 17,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck",
+         "label": "Import Order",
+         "total": 5,
+         "newtotal": 0
+       },
+       { "key": "squid:LeftCurlyBraceStartLineCheck",
+         "label": "Left curly braces should be located at the beginning of lines of code",
+         "total": 33,
+         "newtotal": 0
+       },
+       { "key": "pmd:CommentRequired",
+         "label": "Comment Required",
+         "total": 48,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck",
+         "label": "Javadoc Variable",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "common-java:InsufficientCommentDensity",
+         "label": "Insufficient comment density",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck",
+         "label": "Redundant Modifier",
+         "total": 10,
+         "newtotal": 0
+       },
+       { "key": "checkstyle:com.puppycrawl.tools.checkstyle.checks.javadoc.WriteTagCheck",
+         "label": "Write Tag",
+         "total": 6,
+         "newtotal": 0
+       },
+       { "key": "pmd:UnnecessaryLocalBeforeReturn",
+         "label": "Unnecessary Local Before Return",
+         "total": 1,
          "newtotal": 0
        }
     ].sort(function(a, b) {
@@ -182,7 +379,7 @@
 <div id="reportHeader">
   <div id="logo"><img src="issuesreport_files/sonarqube-24x100.png" alt="SonarQube"/></div>
   <div class="title">Issues Report</div>
-  <div class="subtitle">My project - Sep 3, 2015 3:46:25 PM</div>
+  <div class="subtitle">My project - Sep 4, 2015 12:51:41 PM</div>
 </div>
 
 <div id="content">
