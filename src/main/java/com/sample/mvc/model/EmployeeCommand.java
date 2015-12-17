@@ -48,5 +48,8 @@ public class EmployeeCommand {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	String s = "neha";
+		system.out.print(s);
 
 }

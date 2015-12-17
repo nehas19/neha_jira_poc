@@ -35,6 +35,8 @@ public class EmployeeController {
 	public String listContacts(Map<String, Object> map) {
 	    map.put("contact", new EmployeeCommand());
 	    map.put("contactList", employeeService.listContact());
+		String s = "neha";
+		system.out.println(s);
 	    return "list";
 	}
 	
