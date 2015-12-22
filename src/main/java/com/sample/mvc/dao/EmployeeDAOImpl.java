@@ -29,8 +29,7 @@ public class EmployeeDAOImpl implements EmployeeDAO{
 	}
 	
 	public List<EmployeeCommand> listContact() {
-			String s = "neha";
-		system.out.println(s);
+			
 		  return sessionFactory.getCurrentSession().createQuery("from EmployeeCommand").list();
 	}
 

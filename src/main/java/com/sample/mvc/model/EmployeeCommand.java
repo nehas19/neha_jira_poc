@@ -49,7 +49,6 @@ public class EmployeeCommand {
 		this.city = city;
 	}
 	
-	String s = "neha";
-		system.out.print(s);
+	
 
 }

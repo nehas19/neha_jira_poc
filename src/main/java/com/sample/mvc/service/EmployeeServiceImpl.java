@@ -45,7 +45,6 @@ public class EmployeeServiceImpl  implements EmployeeService{
 	public void updateEmployee(EmployeeCommand employeeCommand) {
 		employeeDAO.updateEmployee(employeeCommand);
 	}
-	 String s = "neha";
-	system.out.print(s);
+	 
 
 }
