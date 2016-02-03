@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
 
   <url>http://maven.apache.org</url>
-      <properties>
+     <!-- <properties>
      	
      	<sonar.jdbc.url>
 	jdbc:mysql://localhost:3306/sonar
@@ -17,7 +17,7 @@
      	<sonar.jdbc.password>root</sonar.jdbc.password>
     	
      	<sonar.host.url>http://172.27.59.105:9000/sonar</sonar.host.url>
-     </properties>
+     </properties> -->
 
   
   <dependencies>
